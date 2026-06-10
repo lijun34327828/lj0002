@@ -1,0 +1,17 @@
+{
+  "name": "online-exam-platform",
+  "version": "1.0.0",
+  "description": "智能在线考试平台 - 前后端一体化",
+  "private": true,
+  "scripts": {
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "keywords": ["exam", "quiz", "online-test"],
+  "author": "Exam Platform Team",
+  "license": "MIT"
+}
