@@ -76,9 +76,7 @@ export async function importQuestions(file: File, subjectId: string): Promise<an
   formData.append('file', file);
   formData.append('subjectId', subjectId);
   
-  const response = await api.post('/questions/import', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  });
+  const response = await api.post('/questions/import', formData);
   return response.data;
 }
 
@@ -86,14 +84,12 @@ export async function previewImport(file: File): Promise<any> {
   const formData = new FormData();
   formData.append('file', file);
   
-  const response = await api.post('/questions/import/preview', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  });
+  const response = await api.post('/questions/import/preview', formData);
   return response.data;
 }
 
 export async function downloadTemplate(): Promise<Blob> {
-  const response = await api.post('/questions/import/template', null, {
+  const response = await api.get('/questions/import/template', {
     responseType: 'blob'
   });
   return response.data;

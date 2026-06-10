@@ -96,7 +96,12 @@ export function parseExcelFile(fileBuffer: Buffer): ImportedQuestion[] {
 function findColumnIndex(headers: string[], possibleNames: string[]): number {
   for (let i = 0; i < headers.length; i++) {
     const header = headers[i];
-    if (possibleNames.some(name => header.includes(name) || name.includes(header))) {
+    if (possibleNames.some(name => {
+      if (name.length <= 1) {
+        return header === name;
+      }
+      return header === name || header.includes(name);
+    })) {
       return i;
     }
   }

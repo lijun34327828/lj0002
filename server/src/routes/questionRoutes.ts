@@ -181,7 +181,7 @@ router.post('/check-duplicates', authMiddleware, (req: AuthRequest, res: Respons
   }
 });
 
-router.post('/import/template', authMiddleware, (req: AuthRequest, res: Response) => {
+router.get('/import/template', authMiddleware, (req: AuthRequest, res: Response) => {
   try {
     const buffer = generateTemplate();
     res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
